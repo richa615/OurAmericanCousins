@@ -1,7 +1,7 @@
 OurAmericanCousins
 ==================
 
-COMP 424 project #1
+COMP 424 group project
 
 In this age of interconnectedness, it's easy to forget that we're a nation of different
 cultures and traditions. While it feels like we all eat at the same restaurants and watch
