@@ -1,0 +1,44 @@
+h1
+{
+	margin-left: 10px;
+	color: red;
+}
+
+/* Pop-up boxes */
+span.pop
+{
+	margin-left: 10px;
+	border-bottom: thin dotted;
+	background: #ffeedd;
+	z-index: 99;
+}
+
+span.pop:hover
+{
+	margin-left: 10px;
+	color: black;
+	text-decoration: none;
+	background: #ffffff;
+	z-index: 99;
+}
+
+span.pop:hover span
+{
+	margin-left: 50px;  /* May need to adjust this in final version */
+	margin-top: 0px;    /* May need to adjust this in final version */
+	left: 5%;
+	background:	#ffff66;
+	z-index: 99;
+}
+
+span.pop span
+{
+	position:absolute;
+	left:-9999px;
+	margin:20px 0 0 0px;
+	padding:3px 3px 3px 3px;
+	border-style:solid;
+	border-color:black;
+	border-width:1px;
+	z-index=99;
+}
