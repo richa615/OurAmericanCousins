@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="ReadStateInfo.css">
+	</head>
+
+	<body>
+		<h2><span id="state"></span></h2>
+
+		<div class="row">
+			<a href="#hide1" class="hide" id="hide1">[+]</a> 
+			<a href="#show1" class="show" id="show1">[-]</a>Demographics
+			<div class="list">
+				<p>Population: <span id="population"></span></p>
+				<p>Average life span: <span id=""></span></p>
+				<p>Obesity rate: <span id="obesity"></span></p>
+				<p>Literacy rate: <span id="literacy"></span></p>
+				<p>Average hourly wage: <span id="wage"></span></p>
+			</div>
+		</div>
+
+		<div class="row">
+			<a href="#hide2" class="hide" id="hide2">[+]</a> 
+			<a href="#show2" class="show" id="show2">[-]</a>Geography
+			<div class="list">
+				<p>Area: <span id="area"></span></p>
+				<p>Capital city: <span id="capital"></span></p>
+				<p>Largest city: <span id="largestCity"></span></p>
+				<p>Average annual rainfall: <span id="rainfall"></span></p>
+			</div>
+		</div>
+
+		<div class="row">
+			<a href="#hide3" class="hide" id="hide3">[+]</a> 
+			<a href="#show3" class="show" id="show3">[-]</a>Places to Go and See
+			<div class="list">
+				<p>Top college: <span id="college"></span></p>
+				<p>Top three attractions:<br>
+					<ul>
+						<li><span id="attraction1"></span></li>
+						<li><span id="attraction2"></span></li>
+						<li><span id="attraction3"></span></li>
+					</ul></p>
+			</div>
+		</div>
+
+		<div class="row">
+			<a href="#hide4" class="hide" id="hide4">[+]</a> 
+			<a href="#show4" class="show" id="show4">[-]</a>Sports
+			<div class="list">
+				<p>NFL: <span id="NFL"></span></p>
+				<p>MLB: <span id="MLB"></span></p>
+				<p>NBA: <span id="NBA"></span></p>
+			</div>
+		</div>
+
+		<div class="row">
+			<a href="#hide5" class="hide" id="hide5">[+]</a> 
+			<a href="#show5" class="show" id="show5">[-]</a>Entertainment
+			<div class="list">
+				<p>Movie star from this state: <span id="star"></span></p>
+				<p>Signature song: <span id="song"></span></p>
+			</div>
+		</div>
+
+		<div class="row">
+			<a href="#hide6" class="hide" id="hide6">[+]</a> 
+			<a href="#show6" class="show" id="show6">[-]</a>Fun Facts
+			<div class="list">
+				<p><span class="category">Fun Facts</p>
+				<p>Signature food: <span id="food"></span></p>
+				<p>Pop vs. soda: <span id="popSoda"></span></p>
+			</div>
+		</div>
+
+		<script>
+			var states = [
+                {"state":"Alabama", "food":"Fried green tomatoes", "attraction1":"US Space and Rocket Center", "attraction2":"Noccalula Falls", "attraction3":"Cathedral Caverns State Park", "rainfall":"56.90 inches per year", "obesity":"32.0%", "capital":"Montgomery", "largestCity":"Birmingham", "song":"Sweet Home Alabama", "college":"University of Alabama", "population":"4.8 million", "area":"51,000 square miles", "wage":"$19.01", "literacy":"x.x million", "NFL":"None", "MLB":"None", "NBA":"None", "star":"Channing Tatum", "popSoda":"Coke"},
+                {"state":"Alaska", "food":"Alaskan king salmon", "attraction1":"Denali National Park", "attraction2":"Glacier Bay National Park", "attraction3":"Alaska Native Heritage Center", "rainfall":"53.15 inches per year", "obesity":"27.4%", "capital":"Juneau", "largestCity":"Anchorage", "song":"The Alaska Song", "college":"University of Alaska Anchorage", "population":"0.7 million", "area":"572,000 square miles", "wage":"$25.02", "literacy":"x.x million", "NFL":"None", "MLB":"None", "NBA":"None", "star":"Darby Stanchfield", "popSoda":"pop"},
+                {"state":"Arizona", "food":"Pork chimichanga", "attraction1":"The Grand Canyon", "attraction2":"The Colorado River", "attraction3":"South Mountain Park", "rainfall":"7.11 inches per year", "obesity":"24.7%", "capital":"Phoenix", "largestCity":"Phoenix", "song":"Arizona", "college":"University of Arizona", "population":"6.6 million", "area":"114,000 square miles", "wage":"$21.13", "literacy":"x.x million", "NFL":"Cardinals", "MLB":"Diamondbacks", "NBA":"Suns", "star":"David Spade", "popSoda":"soda"},
+                {"state":"Arkansas", "food":"Southern fried catfish", "attraction1":"Alligator Farm and Merman", "attraction2":"Dinosaur World", "attraction3":"Wye Mountains", "rainfall":"42.90 inches per year", "obesity":"30.9%", "capital":"Little Rock", "largestCity":"Little Rock", "song":"Mary Queen of Arkansas", "college":"University of Arkansas", "population":"2.9 million", "area":"52,000 square miles", "wage":"$17.72", "literacy":"x.x million", "NFL":"None", "MLB":"None", "NBA":"None", "star":"Billy Bob Thornton", "popSoda":"Coke"},
+                {"state":"California", "food":"Fish tacos", "attraction1":"The Hollywood Sign", "attraction2":"Golden Gate Bridge", "attraction3":"Disneyland", "rainfall":"17.28 inches per year", "obesity":"23.8%", "capital":"Sacramento", "largestCity":"Los Angeles", "song":"California Girls", "college":"Stanford University", "population":"38.0 million", "area":"156,000 square miles", "wage":"$25.17", "literacy":"x.x million", "NFL":"Raiders, 49ers, Chargers", "MLB":"A's, Giants, Dodgers, Angels, Padres", "NBA":"Warriors, Kings, Lakers, Clippers", "star":"Tom Hanks", "popSoda":"soda"},
+                {"state":"Colorado", "food":"Chile verde", "attraction1":"Pike's Peak", "attraction2":"Red Rocks Park and Amphitheater", "attraction3":"Rocky Mountain National Park", "rainfall":"15.31 inches per year", "obesity":"20.7%", "capital":"Denver", "largestCity":"Denver", "song":"Colorado Girl", "college":"Colorado School of Mines", "population":"5.2 million", "area":"104,000 square miles", "wage":"$23.13", "literacy":"x.x million", "NFL":"Broncos", "MLB":"Rockies", "NBA":"Nuggets", "star":"Tim Allen", "popSoda":"pop"},
+                {"state":"Connecticut", "food":"New Haven-style white clam pizza", "attraction1":"The Mark Twain House", "attraction2":"Mystic Seaport", "attraction3":"Yale University", "rainfall":"44.39 inches per year", "obesity":"24.5%", "capital":"Hartford", "largestCity":"Bridgeport", "song":"I Live in Connecticut", "college":"Yale University", "population":"3.6 million", "area":"5,000 square miles", "wage":"$25.85", "literacy":"x.x million", "NFL":"None", "MLB":"None", "NBA":"None", "star":"Justin Long", "popSoda":"soda"},
+                {"state":"Delaware", "food":"Vinegar french fries", "attraction1":"Dover Downs", "attraction2":"Hagley Museum and Library", "attraction3":"Rehoboth Beach", "rainfall":"41.38 inches per year", "obesity":"28.8%", "capital":"Dover", "largestCity":"Wilmington", "song":"Delaware", "college":"University of Delaware", "population":"0.9 million", "area":"2,000 square miles", "wage":"$23.25", "literacy":"x.x million", "NFL":"None", "MLB":"None", "NBA":"None", "star":"Ryan Phillippe", "popSoda":"soda"},
+                {"state":"Florida", "food":"Key lime pie", "attraction1":"Walt Disney World", "attraction2":"Universal Studios", "attraction3":"Miami Beach", "rainfall":"49.91 inches per year", "obesity":"26.6%", "capital":"Tallahassee", "largestCity":"Jacksonville", "song":"Florida", "college":"University of Florida", "population":"19.3 million", "area":"54,000 square miles", "wage":"$19.68", "literacy":"x.x million", "NFL":"Jaguars, Dolphins", "MLB":"Marlins, Rays", "NBA":"Heat, Magic", "star":"Johnny Depp", "popSoda":"soda"},
+                {"state":"Georgia", "food":"Georgia peach pie", "attraction1":"World of Coca-Cola", "attraction2":"Centennial Olympic Park", "attraction3":"Stone Mountain Park", "rainfall":"48.61 inches per year", "obesity":"28.0%", "capital":"Atlanta", "largestCity":"Atlanta", "song":"Midnight Train to Georgia", "college":"Emory University", "population":"9.9 million", "area":"58,000 square miles", "wage":"$20.82", "literacy":"x.x million", "NFL":"Falcons", "MLB":"Braves", "NBA":"Hawks", "star":"Laurence Fishburne", "popSoda":"Coke"},
+                {"state":"Hawaii", "food":"Ahi poke", "attraction1":"Hawaii Volcanoes National Park", "attraction2":"Hanauma Bay Nature Preserve", "attraction3":"Diamond Head State Monument", "rainfall":"23.47 inches per year", "obesity":"21.8%", "capital":"Honolulu", "largestCity":"Honolulu", "song":"Blue Hawaii", "college":"University of Hawaii", "population":"1.4 million", "area":"6,000 square miles", "wage":"$21.54", "literacy":"x.x million", "NFL":"None", "MLB":"None", "NBA":"None", "star":"Bette Midler", "popSoda":"soda"},
+                {"state":"Idaho", "food":"Chicken fried steak", "attraction1":"Craters of the Moon National Monument and Preserve", "attraction2":"Sun Valley", "attraction3":"Shoshone Falls", "rainfall":"11.71 inches per year", "obesity":"27.0%", "capital":"Boise", "largestCity":"Boise", "song":"Idaho", "college":"Boise State University", "population":"1.6 million", "area":"83,000 square miles", "wage":"$18.48", "literacy":"x.x million", "NFL":"None", "MLB":"None", "NBA":"None", "star":"Aaron Paul", "popSoda":"pop"},
+                {"state":"Illinois", "food":"    ", "attraction1":"    ", "attraction2":"    ", "attraction3":"    ", "rainfall":"    ", "obesity":"    ", "capital":"    ", "largestCity":"    ", "song":"  ", "college":"    ", "population":"12.9 million", "area":"56,000 square miles", "wage":"    ", "literacy":"    ", "NFL":"    ", "MLB":"    ", "NBA":"    ", "star":"Harrison Ford", "popSoda":"    "},
+                {"state":"Indiana", "food":"    ", "attraction1":"    ", "attraction2":"    ", "attraction3":"    ", "rainfall":"    ", "obesity":"    ", "capital":"    ", "largestCity":"    ", "song":"  ", "college":"    ", "population":"6.5 million", "area":"36,000 square miles", "wage":"    ", "literacy":"    ", "NFL":"    ", "MLB":"    ", "NBA":"    ", "star":"James Dean", "popSoda":"    "},
+                {"state":"Iowa", "food":"    ", "attraction1":"    ", "attraction2":"    ", "attraction3":"    ", "rainfall":"    ", "obesity":"    ", "capital":"    ", "largestCity":"    ", "song":"  ", "college":"    ", "population":"3.1 million", "area":"56,000 square miles", "wage":"    ", "literacy":"    ", "NFL":"    ", "MLB":"    ", "NBA":"    ", "star":"John Wayne", "popSoda":"    "},
+                {"state":"Kansas", "food":"    ", "attraction1":"    ", "attraction2":"    ", "attraction3":"    ", "rainfall":"    ", "obesity":"    ", "capital":"    ", "largestCity":"    ", "song":"  ", "college":"    ", "population":"2.9 million", "area":"82,000 square miles", "wage":"    ", "literacy":"    ", "NFL":"    ", "MLB":"    ", "NBA":"    ", "star":"Kirstie Alley", "popSoda":"    "},
+                {"state":"Kentucky", "food":"    ", "attraction1":"    ", "attraction2":"    ", "attraction3":"    ", "rainfall":"    ", "obesity":"    ", "capital":"    ", "largestCity":"    ", "song":"  ", "college":"    ", "population":"4.4 million", "area":"40,000 square miles", "wage":"    ", "literacy":"    ", "NFL":"    ", "MLB":"    ", "NBA":"    ", "star":"George Clooney", "popSoda":"    "},
+                {"state":"Louisiana", "food":"    ", "attraction1":"    ", "attraction2":"    ", "attraction3":"    ", "rainfall":"    ", "obesity":"    ", "capital":"    ", "largestCity":"    ", "song":"  ", "college":"    ", "population":"4.6 million", "area":"44,000 square miles", "wage":"    ", "literacy":"    ", "NFL":"    ", "MLB":"    ", "NBA":"    ", "star":"Tyler Perry", "popSoda":"    "},
+                {"state":"Maine", "food":"    ", "attraction1":"    ", "attraction2":"    ", "attraction3":"    ", "rainfall":"    ", "obesity":"    ", "capital":"    ", "largestCity":"    ", "song":"  ", "college":"    ", "population":"1.3 million", "area":"31,000 square miles", "wage":"    ", "literacy":"    ", "NFL":"    ", "MLB":"    ", "NBA":"    ", "star":"Patrick Dempsey", "popSoda":"    "},
+                {"state":"Maryland", "food":"    ", "attraction1":"    ", "attraction2":"    ", "attraction3":"    ", "rainfall":"    ", "obesity":"    ", "capital":"    ", "largestCity":"    ", "song":"  ", "college":"    ", "population":"5.9 million", "area":"10,000 square miles", "wage":"    ", "literacy":"    ", "NFL":"    ", "MLB":"    ", "NBA":"    ", "star":"Warren Beatty", "popSoda":"    "},
+                {"state":"Massachusetts", "food":"    ", "attraction1":"    ", "attraction2":"    ", "attraction3":"    ", "rainfall":"    ", "obesity":"    ", "capital":"    ", "largestCity":"    ", "song":"  ", "college":"    ", "population":"6.6 million", "area":"8,000 square miles", "wage":"    ", "literacy":"    ", "NFL":"    ", "MLB":"    ", "NBA":"    ", "star":"Mark Wahlberg", "popSoda":"    "},
+                {"state":"Michigan", "food":"    ", "attraction1":"    ", "attraction2":"    ", "attraction3":"    ", "rainfall":"    ", "obesity":"    ", "capital":"    ", "largestCity":"    ", "song":"  ", "college":"    ", "population":"9.9 million", "area":"57,000 square miles", "wage":"    ", "literacy":"    ", "NFL":"    ", "MLB":"    ", "NBA":"    ", "star":"Burt Reynolds", "popSoda":"    "},
+                {"state":"Minnesota", "food":"    ", "attraction1":"    ", "attraction2":"    ", "attraction3":"    ", "rainfall":"    ", "obesity":"    ", "capital":"    ", "largestCity":"    ", "song":"  ", "college":"    ", "population":"5.4 million", "area":"80,000 square miles", "wage":"    ", "literacy":"    ", "NFL":"    ", "MLB":"    ", "NBA":"    ", "star":"Winona Rider", "popSoda":"    "},
+                {"state":"Mississippi", "food":"    ", "attraction1":"    ", "attraction2":"    ", "attraction3":"    ", "rainfall":"    ", "obesity":"    ", "capital":"    ", "largestCity":"    ", "song":"  ", "college":"    ", "population":"3.0 million", "area":"47,000 square miles", "wage":"    ", "literacy":"    ", "NFL":"    ", "MLB":"    ", "NBA":"    ", "star":"James Earl Jones", "popSoda":"    "},
+                {"state":"Missouri", "food":"    ", "attraction1":"    ", "attraction2":"    ", "attraction3":"    ", "rainfall":"    ", "obesity":"    ", "capital":"    ", "largestCity":"    ", "song":"  ", "college":"    ", "population":"6.0 million", "area":"69,000 square miles", "wage":"    ", "literacy":"    ", "NFL":"    ", "MLB":"    ", "NBA":"    ", "star":"Jon Hamm", "popSoda":"    "},
+                {"state":"Montana", "food":"    ", "attraction1":"    ", "attraction2":"    ", "attraction3":"    ", "rainfall":"    ", "obesity":"    ", "capital":"    ", "largestCity":"    ", "song":"  ", "college":"    ", "population":"1.0 million", "area":"146,000 square miles", "wage":"    ", "literacy":"    ", "NFL":"    ", "MLB":"    ", "NBA":"    ", "star":"Gary Cooper", "popSoda":"    "},
+                {"state":"Nebraska", "food":"    ", "attraction1":"    ", "attraction2":"    ", "attraction3":"    ", "rainfall":"    ", "obesity":"    ", "capital":"    ", "largestCity":"    ", "song":"  ", "college":"    ", "population":"1.9 million", "area":"77,000 square miles", "wage":"    ", "literacy":"    ", "NFL":"    ", "MLB":"    ", "NBA":"    ", "star":"Marlon Brando", "popSoda":"    "},
+                {"state":"Nevada", "food":"    ", "attraction1":"    ", "attraction2":"    ", "attraction3":"    ", "rainfall":"    ", "obesity":"    ", "capital":"    ", "largestCity":"    ", "song":"  ", "college":"    ", "population":"2.8 million", "area":"110,000 square miles", "wage":"    ", "literacy":"    ", "NFL":"    ", "MLB":"    ", "NBA":"    ", "star":"Jimmy Kimmel", "popSoda":"    "},
+                {"state":"New Hampshire", "food":"    ", "attraction1":"    ", "attraction2":"    ", "attraction3":"    ", "rainfall":"    ", "obesity":"    ", "capital":"    ", "largestCity":"    ", "song":"  ", "college":"    ", "population":"1.3 million", "area":"9,000 square miles", "wage":"    ", "literacy":"    ", "NFL":"    ", "MLB":"    ", "NBA":"    ", "star":"Adam Sandler", "popSoda":"    "},
+                {"state":"New Jersey", "food":"    ", "attraction1":"    ", "attraction2":"    ", "attraction3":"    ", "rainfall":"    ", "obesity":"    ", "capital":"    ", "largestCity":"    ", "song":"  ", "college":"    ", "population":"8.9 million", "area":"7,000 square miles", "wage":"    ", "literacy":"    ", "NFL":"    ", "MLB":"    ", "NBA":"    ", "star":"John Travolta", "popSoda":"    "},
+                {"state":"New Mexico", "food":"    ", "attraction1":"    ", "attraction2":"    ", "attraction3":"    ", "rainfall":"    ", "obesity":"    ", "capital":"    ", "largestCity":"    ", "song":"  ", "college":"    ", "population":"2.1 million", "area":"121,000 square miles", "wage":"    ", "literacy":"    ", "NFL":"    ", "MLB":"    ", "NBA":"    ", "star":"Neil Patrick Harris", "popSoda":"    "},
+                {"state":"New York", "food":"    ", "attraction1":"    ", "attraction2":"    ", "attraction3":"    ", "rainfall":"    ", "obesity":"    ", "capital":"    ", "largestCity":"    ", "song":"  ", "college":"    ", "population":"19.6 million", "area":"47,000 square miles", "wage":"    ", "literacy":"    ", "NFL":"    ", "MLB":"    ", "NBA":"    ", "star":"Tom Cruise", "popSoda":"    "},
+                {"state":"North Carolina", "food":"    ", "attraction1":"    ", "attraction2":"    ", "attraction3":"    ", "rainfall":"    ", "obesity":"    ", "capital":"    ", "largestCity":"    ", "song":"  ", "college":"    ", "population":"9.8 million", "area":"49,000 square miles", "wage":"    ", "literacy":"    ", "NFL":"    ", "MLB":"    ", "NBA":"    ", "star":"Zach Galifianakis", "popSoda":"    "},
+                {"state":"North Dakota", "food":"    ", "attraction1":"    ", "attraction2":"    ", "attraction3":"    ", "rainfall":"    ", "obesity":"    ", "capital":"    ", "largestCity":"    ", "song":"  ", "college":"    ", "population":"0.7 million", "area":"69,000 square miles", "wage":"    ", "literacy":"    ", "NFL":"    ", "MLB":"    ", "NBA":"    ", "star":"Angie Dickenson", "popSoda":"    "},
+                {"state":"Ohio", "food":"    ", "attraction1":"    ", "attraction2":"    ", "attraction3":"    ", "rainfall":"    ", "obesity":"    ", "capital":"    ", "largestCity":"    ", "song":"  ", "college":"    ", "population":"11.5 million", "area":"41,000 square miles", "wage":"    ", "literacy":"    ", "NFL":"    ", "MLB":"    ", "NBA":"    ", "star":"Clark Gable", "popSoda":"    "},
+                {"state":"Oklahoma", "food":"    ", "attraction1":"    ", "attraction2":"    ", "attraction3":"    ", "rainfall":"    ", "obesity":"    ", "capital":"    ", "largestCity":"    ", "song":"  ", "college":"    ", "population":"3.8 million", "area":"69,000 square miles", "wage":"    ", "literacy":"    ", "NFL":"    ", "MLB":"    ", "NBA":"    ", "star":"Brad Pitt", "popSoda":"    "},
+                {"state":"Oregon", "food":"    ", "attraction1":"    ", "attraction2":"    ", "attraction3":"    ", "rainfall":"    ", "obesity":"    ", "capital":"    ", "largestCity":"    ", "song":"  ", "college":"    ", "population":"3.9 million", "area":"96,000 square miles", "wage":"    ", "literacy":"    ", "NFL":"    ", "MLB":"    ", "NBA":"    ", "star":"Ty Burrell", "popSoda":"    "},
+                {"state":"Pennsylvania", "food":"    ", "attraction1":"    ", "attraction2":"    ", "attraction3":"    ", "rainfall":"    ", "obesity":"    ", "capital":"    ", "largestCity":"    ", "song":"  ", "college":"    ", "population":"12.8 million", "area":"45,000 square miles", "wage":"    ", "literacy":"    ", "NFL":"    ", "MLB":"    ", "NBA":"    ", "star":"Will Smith", "popSoda":"    "},
+                {"state":"Rhode Island", "food":"    ", "attraction1":"    ", "attraction2":"    ", "attraction3":"    ", "rainfall":"    ", "obesity":"    ", "capital":"    ", "largestCity":"    ", "song":"  ", "college":"    ", "population":"1.1 million", "area":"1,000 square miles", "wage":"    ", "literacy":"    ", "NFL":"    ", "MLB":"    ", "NBA":"    ", "star":"Mena Suvari", "popSoda":"    "},
+                {"state":"South Carolina", "food":"    ", "attraction1":"    ", "attraction2":"    ", "attraction3":"    ", "rainfall":"    ", "obesity":"    ", "capital":"    ", "largestCity":"    ", "song":"  ", "college":"    ", "population":"4.7 million", "area":"30,000 square miles", "wage":"    ", "literacy":"    ", "NFL":"    ", "MLB":"    ", "NBA":"    ", "star":"Andi MacDowell", "popSoda":"    "},
+                {"state":"South Dakota", "food":"    ", "attraction1":"    ", "attraction2":"    ", "attraction3":"    ", "rainfall":"    ", "obesity":"    ", "capital":"    ", "largestCity":"    ", "song":"  ", "college":"    ", "population":"0.8 million", "area":"76,000 square miles", "wage":"    ", "literacy":"    ", "NFL":"    ", "MLB":"    ", "NBA":"    ", "star":"January Jones", "popSoda":"    "},
+                {"state":"Tennessee", "food":"    ", "attraction1":"    ", "attraction2":"    ", "attraction3":"    ", "rainfall":"    ", "obesity":"    ", "capital":"    ", "largestCity":"    ", "song":"  ", "college":"    ", "population":"6.5 million", "area":"41,000 square miles", "wage":"    ", "literacy":"    ", "NFL":"    ", "MLB":"    ", "NBA":"    ", "star":"Justin Timberlake", "popSoda":"    "},
+                {"state":"Texas", "food":"    ", "attraction1":"    ", "attraction2":"    ", "attraction3":"    ", "rainfall":"    ", "obesity":"    ", "capital":"    ", "largestCity":"    ", "song":"  ", "college":"    ", "population":"26.1 million", "area":"262,000 square miles", "wage":"    ", "literacy":"    ", "NFL":"    ", "MLB":"    ", "NBA":"    ", "star":"Jamie Foxx", "popSoda":"    "},
+                {"state":"Utah", "food":"    ", "attraction1":"    ", "attraction2":"    ", "attraction3":"    ", "rainfall":"    ", "obesity":"    ", "capital":"    ", "largestCity":"    ", "song":"  ", "college":"    ", "population":"2.9 million", "area":"82,000 square miles", "wage":"    ", "literacy":"    ", "NFL":"    ", "MLB":"    ", "NBA":"    ", "star":"Roseanne Barr", "popSoda":"    "},
+                {"state":"Vermont", "food":"    ", "attraction1":"    ", "attraction2":"    ", "attraction3":"    ", "rainfall":"    ", "obesity":"    ", "capital":"    ", "largestCity":"    ", "song":"  ", "college":"    ", "population":"0.6 million", "area":"9,000 square miles", "wage":"    ", "literacy":"    ", "NFL":"    ", "MLB":"    ", "NBA":"    ", "star":"Zosia Mamet", "popSoda":"    "},
+                {"state":"Virginia", "food":"    ", "attraction1":"    ", "attraction2":"    ", "attraction3":"    ", "rainfall":"    ", "obesity":"    ", "capital":"    ", "largestCity":"    ", "song":"  ", "college":"    ", "population":"8.2 million", "area":"40,000 square miles", "wage":"    ", "literacy":"    ", "NFL":"    ", "MLB":"    ", "NBA":"    ", "star":"Goldie Hawn", "popSoda":"    "},
+                {"state":"Washington", "food":"    ", "attraction1":"    ", "attraction2":"    ", "attraction3":"    ", "rainfall":"    ", "obesity":"    ", "capital":"    ", "largestCity":"    ", "song":"  ", "college":"    ", "population":"6.9 million", "area":"67,000 square miles", "wage":"    ", "literacy":"    ", "NFL":"    ", "MLB":"    ", "NBA":"    ", "star":"Hillary Swank", "popSoda":"    "},
+                {"state":"West Virginia", "food":"    ", "attraction1":"    ", "attraction2":"    ", "attraction3":"    ", "rainfall":"    ", "obesity":"    ", "capital":"    ", "largestCity":"    ", "song":"  ", "college":"    ", "population":"1.9 million", "area":"24,000 square miles", "wage":"    ", "literacy":"    ", "NFL":"    ", "MLB":"    ", "NBA":"    ", "star":"Jennifer Garner", "popSoda":"    "},
+                {"state":"Wisconsin", "food":"    ", "attraction1":"    ", "attraction2":"    ", "attraction3":"    ", "rainfall":"    ", "obesity":"    ", "capital":"    ", "largestCity":"    ", "song":"  ", "college":"    ", "population":"5.7 million", "area":"54,000 square miles", "wage":"    ", "literacy":"    ", "NFL":"    ", "MLB":"    ", "NBA":"    ", "star":"Chris Farley", "popSoda":"    "},
+                {"state":"Wyoming", "food":"    ", "attraction1":"    ", "attraction2":"    ", "attraction3":"    ", "rainfall":"    ", "obesity":"    ", "capital":"    ", "largestCity":"    ", "song":"  ", "college":"    ", "population":"0.6 million", "area":"97,000 square miles", "wage":"    ", "literacy":"    ", "NFL":"    ", "MLB":"    ", "NBA":"    ", "star":"Jim Beaver", "popSoda":"    "},
+				];
+
+			document.getElementById("state").innerHTML=states[11].state;
+			document.getElementById("food").innerHTML=states[11].food;
+			document.getElementById("attraction1").innerHTML=states[11].attraction1;
+			document.getElementById("attraction2").innerHTML=states[11].attraction2;
+			document.getElementById("attraction3").innerHTML=states[11].attraction3;
+			document.getElementById("rainfall").innerHTML=states[11].rainfall;
+			document.getElementById("obesity").innerHTML=states[11].obesity;
+			document.getElementById("capital").innerHTML=states[11].capital;
+			document.getElementById("largestCity").innerHTML=states[11].largestCity;
+			document.getElementById("song").innerHTML=states[11].song;
+			document.getElementById("college").innerHTML=states[11].college;
+			document.getElementById("population").innerHTML=states[11].population;
+			document.getElementById("area").innerHTML=states[11].area;
+			document.getElementById("wage").innerHTML=states[11].wage;
+			document.getElementById("literacy").innerHTML=states[11].literacy;
+			document.getElementById("NFL").innerHTML=states[11].NFL;
+			document.getElementById("MLB").innerHTML=states[11].MLB;
+			document.getElementById("NBA").innerHTML=states[11].NBA;
+			document.getElementById("star").innerHTML=states[11].star;
+			document.getElementById("popSoda").innerHTML=states[11].popSoda;
+		</script>
+	</body>
+</html>
